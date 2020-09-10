@@ -16,17 +16,17 @@ A quick guide for NestJS | September 2020
    3. Main commands by Nest CLI:
       ```typescript
       // Installation
-      $ npm install
+      $ yarn install
       // Running the app: development
-      $ npm run start
+      $ yarn start
       // Running the app: watch mode
-      $ npm run start:dev
+      $ yarn start:dev
       // Running the app: production mode
-      $ npm run start:prod
+      $ yarn start:prod
       // Test: unit tests
-      $ npm run test
+      $ yarn test
       // Test: e2e tests
-      $ npm run test:e2e
+      $ yarn test:e2e
       // Test: test coverage
-      $ npm run test:cov
+      $ yarn test:cov
       ```
