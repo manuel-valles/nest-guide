@@ -34,6 +34,7 @@ A quick guide for NestJS | September 2020
       $ yarn test:cov
       ```
    4. Modules:
+
       - They are an effective way to organize components by a closely related set of capabilities (e.g. per feature).
       - Modules are **singletons**, therefore a module can be imported by multiple other modules.
       - Each application has at least one module - the root module. That is the starting point of the application.
@@ -43,4 +44,11 @@ A quick guide for NestJS | September 2020
         - _controllers_: Array of controllers to be instantiated within the module;
         - _exports_: Array of providers to export to other modules;
         - _imports_: List of modules required by this module. Any exported provider by these modules will now be available on our module via dependency injection.
-      - Command to generate a module through the Nest CLI: `$ nest g module tasks`
+      - Command to generate a module: `$ nest g module tasks`
+
+   5. Controllers:
+      - Responsible for handling incoming **requests** and returning **responses** to the client.
+      - Bound to a specific **path** ('/tasks').
+      - Contain **handlers**, which handle **endpoints** and **request methods** (@Get(), @Post(),...).
+      - Can take advantage of **dependency injection** to consume providers within the same module.
+      - Command to generate a controller: `$ nest g controller tasks --no-spec` (_--no-spec_ to not generate the spec file / unit test).
