@@ -3,13 +3,16 @@
 A quick guide for NestJS | September 2020
 
 0. CLI
+
    1. Installation:
+
    ```typescript
    // npm
    $ npm i -g @nestjs/cli
    // or yarn (CMD Admin: $ choco install yarn)
    $ yarn global add @nestjs/cli
    ```
+
    2. Create a project: `$ nest new task-management`
       NOTE: Something I love
       ![coffeeTime](images/yarnTakingCoffee.jpg)
@@ -30,3 +33,14 @@ A quick guide for NestJS | September 2020
       // Test: test coverage
       $ yarn test:cov
       ```
+   4. Modules:
+      - They are an effective way to organize components by a closely related set of capabilities (e.g. per feature).
+      - Modules are **singletons**, therefore a module can be imported by multiple other modules.
+      - Each application has at least one module - the root module. That is the starting point of the application.
+      - It is a good practice to have a folder per module, containing the module's components.
+      - **@Module Decorator** provides metadata that Nest uses to organize the application structure, and its properties are:
+        - _providers_: Array of providers to be available within the module via dependency injection;
+        - _controllers_: Array of controllers to be instantiated within the module;
+        - _exports_: Array of providers to export to other modules;
+        - _imports_: List of modules required by this module. Any exported provider by these modules will now be available on our module via dependency injection.
+      - Command to generate a module through the Nest CLI: `$ nest g module tasks`
