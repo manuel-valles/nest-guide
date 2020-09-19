@@ -68,3 +68,12 @@ A quick guide for NestJS | September 2020
 
    7. Features:
       - Getting all tasks: `http://localhost:3000/tasks`
+      - Use the uuid package to generate the id:
+        - https://www.npmjs.com/package/uuid
+        - `$ yarn add uuid`
+      - Two ways to use the @Body in a POST:
+        - (@Body() body)
+        - (
+          @Body('title') title: string,
+          @Body('description') description: string
+          )
