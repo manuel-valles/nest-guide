@@ -58,9 +58,13 @@ A quick guide for NestJS | September 2020
       - Command to generate a controller: `$ nest g controller tasks --no-spec` (_--no-spec_ to not generate the spec file / unit test).
 
    6. Providers:
+
       - Can be injected into constructors if decorated as **@Injectable**, via **dependency injection**.
       - Can be a plain value, a class, sync/async factory,...
       - Must be provided to a module for the to be usable.
       - Can be exported from a module, and then be available to other modules that import it.
       - **Services** are defined as providers BUT **Not all providers are services**. They are singletons when wrapped with **@Injectable()** and provided to a module. That means, the same instance will be shared across the application, acting as a single source of truth.
       - Command to generate a provider/service: `$ nest g service tasks --no-spec`
+
+   7. Features:
+      - Getting all tasks: `http://localhost:3000/tasks`
