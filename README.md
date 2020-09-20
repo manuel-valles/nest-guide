@@ -98,4 +98,7 @@ A quick guide for NestJS | September 2020
         - Add class-validator class-transformer: `$ yarn add class-validator class-transformer`;
         - Decorators available: https://github.com/typestack/class-validator#validation-decorators;
         - Implement the decorator to the DTO like `@IsNotEmpty()`;
-        - Apply it to the Controller: `@UsePipes(ValidationPipe)`;
+        - Apply it to the Controller:
+          - `@UsePipes(ValidationPipe)`
+            OR
+          - `@Query(ValidationPipe)`
