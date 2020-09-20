@@ -14,7 +14,6 @@ A quick guide for NestJS | September 2020
    ```
 
    2. Create a project: `$ nest new task-management`
-      NOTE: Something I love
       ![coffeeTime](images/yarnTakingCoffee.jpg)
 
    3. Main commands by Nest CLI:
@@ -67,13 +66,21 @@ A quick guide for NestJS | September 2020
       - Command to generate a provider/service: `$ nest g service tasks --no-spec`
 
    7. Features:
+
       - Getting all tasks: `http://localhost:3000/tasks`
       - Use the uuid package to generate the id:
         - https://www.npmjs.com/package/uuid
         - `$ yarn add uuid`
-      - Two ways to use the @Body in a POST:
+      - Two ways to use the @Body decorator in a POST:
         - (@Body() body)
         - (
           @Body('title') title: string,
           @Body('description') description: string
           )
+
+   8. DTO:
+      - An example of an HTTP Request-Response where we don't have a unified way to define the data looks like. Imagine we have to change one field, remove or add a new one:
+        ![exampleHTTPRequestResponse](images/exampleRequestResponse.jpg)
+      - A **Data Transfer Object** is an object that carries data between processes that can be defined using an interface or class.
+      - The recommended approach is to use classes since interfaces are a part of TypeScript and therefore are not preserved post-compilation. Classes also allow us to do more.
+      - Applying the DTO pattern will make it easy to maintain and refactor.
