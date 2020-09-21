@@ -102,3 +102,30 @@ A quick guide for NestJS | September 2020
           - `@UsePipes(ValidationPipe)`
             OR
           - `@Query(ValidationPipe)`
+
+1. Data Persistence
+   1. Install **PostgreSQL** (includes pgAdmin): https://www.postgresql.org/ftp/pgadmin/pgadmin4/v4.26/windows/
+   2. Run **pgAdmin**
+      - Servers > Create > Server
+        - Name: _local_
+        - HostName: _localhost_
+      - local > Databases > Create > Database
+        - Database: _taskmanagement_
+      - To change password:
+        - `ALTER USER ${User_Name} WITH PASSWORD '${User_Password}';`
+        - Example: `ALTER USER postgres WITH PASSWORD 'postgres'`;
+   3. ORM - **Object-Relational Mapping** is a technique to query and manipulate data from a database, using a n object oriented paradigm.
+      - **TypeORM** is an ORM library that can run in Node.js and be used with TypeScript (or JavaScript). https://typeorm.io/ - Install the packages needed: `$ yarn add @nestjs/typeorm typeorm pg`
+      - Example config file:
+      ```typescript
+      const typeOrmConfig: TypeOrmModuleOptions = {
+        type: 'postgres',
+        host: 'localhost',
+        port: 5432,
+        username: 'postgres',
+        password: 'postgres',
+        database: 'taskmanagement',
+        entities: [__dirname + '/../**/*.entity.ts'],
+        synchronize: true,
+      };
+      ```
