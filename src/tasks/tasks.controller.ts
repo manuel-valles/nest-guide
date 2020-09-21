@@ -22,11 +22,11 @@ export class TasksController {
         return this.tasksService.getTaskById(id)
     }
 
-    // @Post()
-    // @UsePipes(ValidationPipe)
-    // createTask(@Body() createTaskDTO: CreateTaskDto): Task {
-    //     return this.tasksService.createTask(createTaskDTO)
-    // }
+    @Post()
+    @UsePipes(ValidationPipe)
+    createTask(@Body() createTaskDTO: CreateTaskDto): Promise<Task> {
+        return this.tasksService.createTask(createTaskDTO)
+    }
 
     // @Delete(':id')
     // deleteTask(@Param('id') id: string): void {
