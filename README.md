@@ -133,3 +133,11 @@ A quick guide for NestJS | September 2020
       - **Entity** is an object that usually represents a row in a DB. In TypeORM, an entity is a class that maps to a database table or collection. Basic entities consist of columns and relations. Each entity MUST have a **primary column** (or ObjectId).
       - **Repository** is an object to fetch and save entities from/to storage that represents DB tables. In other words, _Repositories_ are classes that encapsulate the logic required to access data sources. They centralize common data access functionality, providing better maintainability and decoupling the infrastructure or technology used to access databases from the domain model layer.
       - Once we implement the entity, we don't need the _task.model_ nor the uuid package: `$ yarn remove uuid`.
+      - Links of interest:
+        - https://github.com/typeorm/typeorm/blob/master/docs/entities.md
+        - http://typeorm.delightful.studio/classes/_repository_repository_.repository.html
+        - https://github.com/typeorm/typeorm/blob/master/docs/custom-repository.md
+        - http://typeorm.delightful.studio/classes/_repository_repository_.repository.html#findone
+        - http://typeorm.delightful.studio/classes/_repository_repository_.repository.html#remove
+        - http://typeorm.delightful.studio/classes/_repository_repository_.repository.html#delete
+        - NOTE: _Remove_ method requires two calls to the DB, one to find it and another one to delete it. However, _Delete_ method will try to delete a task, and if it's not found then it will throw an error.
