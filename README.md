@@ -14,6 +14,7 @@ A quick guide for NestJS | September 2020
    ```
 
    2. Create a project: `$ nest new task-management`
+
       ![coffeeTime](images/yarnTakingCoffee.jpg)
 
    3. Main commands by Nest CLI:
@@ -125,7 +126,9 @@ A quick guide for NestJS | September 2020
         username: 'postgres',
         password: 'postgres',
         database: 'taskmanagement',
-        entities: [__dirname + '/../**/*.entity.ts'],
+        entities: [__dirname + '/../**/*.entity.{js,ts}'],
         synchronize: true,
       };
       ```
+      - **Entity** is an object that usually represents a row in a DB. In TypeORM, an entity is a class that maps to a database table or collection. Basic entities consist of columns and relations. Each entity MUST have a **primary column** (or ObjectId).
+      - **Repository** is an object to fetch and save entities from/to storage that represents DB tables. In other words, _Repositories_ are classes that encapsulate the logic required to access data sources. They centralize common data access functionality, providing better maintainability and decoupling the infrastructure or technology used to access databases from the domain model layer.
