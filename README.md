@@ -149,8 +149,13 @@ $ yarn global add @nestjs/cli
 
 1.  Create the auth module, controller and service:
 
-```
-$ nest g module auth
-$ nest g controller auth --no-spec
-$ nest g service auth --no-spec
-```
+    ```
+    $ nest g module auth
+    $ nest g controller auth --no-spec
+    $ nest g service auth --no-spec
+    ```
+
+2.  Create the User Entity and the User Repository
+
+    - **AuthCredentialsDto** for the signIn and signUp features;
+    - Integrate Controller with the service and this with the repository.
