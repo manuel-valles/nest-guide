@@ -159,3 +159,10 @@ $ yarn global add @nestjs/cli
 
     - **AuthCredentialsDto** for the signIn and signUp features;
     - Integrate Controller with the service and this with the repository.
+
+3.  Implement Validation for the _AuthCredentialsDto_:
+
+    - Aside from **@IsString, @MinLength, ...**, you can use RegEx with the **@Matches(**${RegEx}, ${message}**)** decorator.
+
+4.  Implement Error Handling for the _UserEntity_:
+    - As a DB level, you can use the **@Unique(**[${column},]**)** decorator, and then implement a try-catch with the _error.code_ to detect duplicate usernames.
