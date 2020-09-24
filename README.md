@@ -176,4 +176,25 @@ $ yarn global add @nestjs/cli
     - Example Hashed password with salt: `$2b$10$96Kh1QY61OZq79bMKz37EueDEZ23HCL6DaIc.Ht1ZIOIiuz/Yy9fu`
 
 6.  SignIn: Password validation
+
     - Create a custom method (_validatePassword_) in the User Entity where the hashed input password must match with the actual user's hashed password.
+
+7.  JWT
+
+    - Open-source industry standard (RFC-7519) used for Authorization or secure exchange of information between parties;
+    - Signed by the issuer, using a secret or keypair (HMAC algorithm, RSA or ECDSA);
+    - Example of JWT Structure:
+
+      - _Header_: contains metadata about the token like type and hashing algorithm;
+      - _Payload_: contains claims (statements about an entity) and additional data;
+      - _Signature_: result of the encoded header, the encoded payload, signed against a secret.
+
+      ![exampleJWT](images/exampleJWT.jpg)
+
+    - **Passport** is authentication middleware for Node.js with a comprehensive set of strategies support authentication using a username and password, Facebook, Twitter,...
+    - **Passport JWT** is a Passport strategy for authenticating with a JSON Web Token and it is intended to be used to secure RESTful endpoints without sessions. `$ yarn add @nestjs/jwt @nestjs/passport passport passport-jwt`
+
+    - Links of interest:
+      - https://jwt.io/
+      - http://www.passportjs.org/
+      - https://github.com/mikenicholson/passport-jwt
