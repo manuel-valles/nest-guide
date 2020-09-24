@@ -165,4 +165,11 @@ $ yarn global add @nestjs/cli
     - Aside from **@IsString, @MinLength, ...**, you can use RegEx with the **@Matches(**${RegEx}, ${message}**)** decorator.
 
 4.  Implement Error Handling for the _UserEntity_:
+
     - As a DB level, you can use the **@Unique(**[${column},]**)** decorator, and then implement a try-catch with the _error.code_ to detect duplicate usernames.
+
+5.  Security Hashing Passwords using Salts:
+    - A salt is added to the hashing process to force their uniqueness, increase their complexity without increasing user requirements, and to mitigate password attacks like rainbow tables.
+    - `$ yarn add bcrypt`
+    - Example Salt: `$2b$10$96Kh1QY61OZq79bMKz37Eu`
+    - Example Hashed password with salt: `$2b$10$96Kh1QY61OZq79bMKz37EueDEZ23HCL6DaIc.Ht1ZIOIiuz/Yy9fu`
