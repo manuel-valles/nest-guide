@@ -208,6 +208,7 @@ $ yarn global add @nestjs/cli
             salt: '$2b$10$YzjsNm4un5ccQcp/5z1VWu'
           }
         ```
+      - Create a custom decorator (_@GetUser()_) to extract the User Object from the request.
 
     - Links of interest:
       - https://jwt.io/
