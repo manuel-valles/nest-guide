@@ -194,6 +194,21 @@ $ yarn global add @nestjs/cli
     - **Passport** is authentication middleware for Node.js with a comprehensive set of strategies support authentication using a username and password, Facebook, Twitter,...
     - **Passport JWT** is a Passport strategy for authenticating with a JSON Web Token and it is intended to be used to secure RESTful endpoints without sessions. `$ yarn add @nestjs/jwt @nestjs/passport passport passport-jwt`
 
+    - Steps for implementation:
+
+      - Create a JWT upon signing into the application. This can be done with the service provided by the JwtModule.
+      - Create a JWT Strategy (Class) to authenticate the user and retrieve the information needed.
+      - Apply the Authentication to the requests (this could be also done by Controller level) with the **@UseGuards(AuthGuard())** and the general _@Req()_.
+      - Using _Postman_, for example, you can add in _Headers_ the key _Authorization_ and the value _Bearer_ whitespace and the JWT from the signIn call. This will return the entire request what includes the User Object/Entity:
+        ```typescript
+          user: User {
+            id: 1,
+            username: 'Manu Kem',
+            password: '$2b$10$YzjsNm4un5ccQcp/5z1VWuemx.hie7WSVGgomRPwdGJvFIma6swMe',
+            salt: '$2b$10$YzjsNm4un5ccQcp/5z1VWu'
+          }
+        ```
+
     - Links of interest:
       - https://jwt.io/
       - http://www.passportjs.org/
