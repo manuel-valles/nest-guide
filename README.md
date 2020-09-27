@@ -228,3 +228,16 @@ $ yarn global add @nestjs/cli
       - https://jwt.io/
       - http://www.passportjs.org/
       - https://github.com/mikenicholson/passport-jwt
+
+## 3. Authorization
+
+1. Task Ownership
+
+   - Add a relationship decorator to both entities (User & Task) with just one of the eager properties to true. For instance, the User:
+
+   ```typescript
+     @OneToMany(type => Task, task => task.user, { eager: true })
+     tasks: Task[]
+   ```
+
+   - Add the User Object to the different Controllers through the Service and Repository (IMPORTANT: Do NOT forget to **delete task.user** before sending it).
