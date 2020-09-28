@@ -323,3 +323,34 @@ To limit operations to the User we need to add a User-Task relationship by:
       "start:dev": "cross-env NODE_ENV=development nest start --watch"
     }
     ```
+- A Frontend solution: https://github.com/manukempo/task-management-frontend
+
+## 5. Deployment
+
+Just a few changes are needed for most of the clouds:
+
+- Enable the CORS to the specific origin when it's not development mode and add it to the script for production:
+
+  ```typescript
+  else{
+    app.enableCors({ origin: serverConfig.origin })
+  }
+  ```
+
+  ```json
+  {
+    "start:prod": "cross-env NODE_ENV=production node dist/main"
+  }
+  ```
+
+- Move some of the devDependencies to be available in production mode:
+  ```json
+  {
+    "typeorm": "^0.2.26",
+    "@types/express": "^4.17.3",
+    "@types/node": "^13.9.1",
+    "ts-node": "9.0.0",
+    "typescript": "^3.7.4"
+  }
+  ```
+- Update the _BASE_URL_ in the frontend code with the origin mentioned above. e.g.: `BASE_URL = 'https://nestjs-task-management-frontend.com';`
