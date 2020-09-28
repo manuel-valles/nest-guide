@@ -309,3 +309,17 @@ To limit operations to the User we need to add a User-Task relationship by:
     ```
 
   - You can also use an environment variable this way: `$ PORT=3005 yarn start:dev`
+
+- To enable CORS:
+
+  ```javascript
+  if (process.env.NODE_ENV === 'development') app.enableCors();
+  ```
+
+- NOTE: For Windows, you need to install **cross-env** as development dependency (https://www.npmjs.com/package/cross-env)
+  - `$ yarn add --dev cross-env`
+    ```json
+    {
+      "start:dev": "cross-env NODE_ENV=development nest start --watch"
+    }
+    ```
