@@ -289,3 +289,23 @@ To limit operations to the User we need to add a User-Task relationship by:
   ![exampleLogging](images/exampleLogging_log_debug_verbose_error.jpg)
 
 - Official docs: https://docs.nestjs.com/techniques/logger
+
+## 4. Configuration
+
+- You could define the configuration in your **codebase**, like a **/config** folder, or via **environment variables** that are provided when running the app.
+  - Non-sensitive information, like the port, will be defined in the code base;
+  - Sensitive information, such as database username and password for production mode, will be provided via environment variables upon running the app.
+- Configuration Management Setup:
+
+  - `$ yarn add config`
+  - Create the /config folder and the different YML files per environment.
+  - Example for retrieving the values with the package config:
+
+    ```typescript
+    import * as config from 'config';
+
+    const serverConfig = config.get('server');
+    const port = process.env.PORT || serverConfig.port;
+    ```
+
+  - You can also use an environment variable this way: `$ PORT=3005 yarn start:dev`
