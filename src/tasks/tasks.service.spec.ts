@@ -9,7 +9,7 @@ const mockUser = { username: 'UserTest' }
 const mockTaskRepository = () => ({
     getTasks: jest.fn()
 })
-describe('task service', () => {
+describe('TaskService', () => {
     let tasksService, taskRepository
 
     beforeEach(async () => {

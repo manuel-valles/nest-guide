@@ -371,3 +371,13 @@ Just a few changes are needed for most of the clouds:
   friendsList.addFriend('Manu');
   expect(mockFunc).toHaveBeenCalledWith('Manu');
   ```
+
+- NestJS provides the **Test Module** to test any part of the NestJS ecosystem. Within it you must add the providers that are the dependencies for the specific class. For example, for TasksService you have the _TasksService_ itself and an external dependency, the _TaskRepository_.
+
+- Since they are Unit Tests, we don't want to interact with the DB, so you can create mock data like a _mockTaskRepository_ that simulates the _TaskRepository_.
+
+  ```typescript
+    { provide: TaskRepository, useFactory: mockTaskRepository },
+  ```
+
+  **NOTE**: You can use _useClass_, _useValue_ or _useFactory_. In this case, we pick the last one because we want to create it over and over again.
