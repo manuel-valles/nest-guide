@@ -354,3 +354,20 @@ Just a few changes are needed for most of the clouds:
   }
   ```
 - Update the _BASE_URL_ in the frontend code with the origin mentioned above. e.g.: `BASE_URL = 'https://nestjs-task-management-frontend.com';`
+
+## 6. Testing
+
+**Jest** is a JavaScript Testing Framework with a focus on simplicity that works with projects using: Babel, TypeScript, Node, React, Angular, ...
+
+- **Mock Functions** allow you to test the links between code by erasing the actual implementation of a function, capturing calls to the function, capturing instances of constructor functions when instantiated with new, and allowing test-time configuration of return values.
+
+  - In order to make it less demanding to assert how mock functions have been called, you can use custom matcher functions for you:
+
+  ```typescript
+  const friendsList = new FriendsList();
+  friendsList.announceFriendship = jest.fn();
+
+  expect(friendsList.announceFriendship).not.toHaveBeenCalled();
+  friendsList.addFriend('Manu');
+  expect(mockFunc).toHaveBeenCalledWith('Manu');
+  ```
