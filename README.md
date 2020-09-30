@@ -381,3 +381,15 @@ Just a few changes are needed for most of the clouds:
   ```
 
   **NOTE**: You can use _useClass_, _useValue_ or _useFactory_. In this case, we pick the last one because we want to create it over and over again.
+
+  **IMPORTANT**: To be able to test the _userRepository_ we need to have access to the User, and we can do so just changing this:
+
+  ```typescript
+  const user = new User();
+  ```
+
+  to:
+
+  ```typescript
+  const user = this.create();
+  ```
