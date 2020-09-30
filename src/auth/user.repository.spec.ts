@@ -29,14 +29,16 @@ describe('UserRepository', () => {
             expect(userRepository.signUp(mockCredentialsDto)).resolves.not.toThrow()
         })
 
+        // Fixed error: Received promise resolved instead of rejected
+        // https://github.com/facebook/jest/issues/3601
         it('throws a conflict exception as username already exists', async () => {
             save.mockRejectedValue({ code: '23505' })
-            expect(userRepository.signUp(mockCredentialsDto)).rejects.toThrow(ConflictException)
+            await expect(userRepository.signUp(mockCredentialsDto)).rejects.toThrow(ConflictException)
         })
 
-        it('throws an internal exception', () => {
+        it('throws an internal exception', async () => {
             save.mockRejectedValue({ code: '12345' })
-            expect(userRepository.signUp(mockCredentialsDto)).rejects.toThrow(InternalServerErrorException)
+            await expect(userRepository.signUp(mockCredentialsDto)).rejects.toThrow(InternalServerErrorException)
         })
     })
 })
