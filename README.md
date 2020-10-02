@@ -1,4 +1,4 @@
-# Nest v7.4.0
+# Nest Guide (v>7.4.0)
 
 A quick guide for NestJS | September 2020
 
